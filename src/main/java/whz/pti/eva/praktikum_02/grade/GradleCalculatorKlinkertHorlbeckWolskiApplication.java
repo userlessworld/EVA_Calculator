@@ -1,4 +1,4 @@
-package com.example.demo;
+package whz.pti.eva.praktikum_02.grade;
 
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -18,8 +18,7 @@ public class GradleCalculatorKlinkertHorlbeckWolskiApplication {
 	
 	@Bean
 	CommandLineRunner init() {
-		return null;
-
+		return (evt)-> System.out.println("test");
 	}
 
 }

@@ -16,7 +16,7 @@ import whz.pti.eva.praktikum_02.grade.domain.GradeRepository;
 @Service
 public class GradeServiceImpl implements GradeService{
 	
-
+	
 	private GradeRepository graderepro;
 	
 	@Autowired
