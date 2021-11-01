@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import whz.pti.eva.praktikum_02.grade.domain.Grade;
@@ -24,6 +25,17 @@ public class GradeController {
 			model.addAttribute("Lecture", lecture);
 			return "grades";
 		
+	}
+	
+	@RequestMapping(value = "/add", method = RequestMethod.POST)
+	public String addGrade(@RequestParam String lecture, @RequestParam String grade,
+			@RequestParam String lcontent, Model model) {
+		model.addAttribute("lecture", lecture);
+		model.addAttribute("currentLecture", lecture);
+		List<Grade> list = gradeService.listAllGrades();
+		model.addAttribute("listAllGrades", list);
+		gradeService.addGrade(lecture, grade);
+		return "redirect:grades?lecture=" + lecture + "&grade=" + grade;
 	}
 	
 }
