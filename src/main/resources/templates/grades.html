@@ -7,13 +7,11 @@
 
 <body>
 	<div
-		th:include="fragments/body :: headline (txt='viel spass beim chatten !!!' )"></div>
+		th:include="fragments/body :: headline (txt='Hier kannst du deine Noten eintragen' )"></div>
 	<div th:include="fragments/body :: nav (all=false)"></div>
 
 	<div class="container">
-		<h5>
-			<span th:text="${'quatschen mit ' +  toUser}">Noten eintragen</span>
-		</h5>
+		<h5>Trage deine Noten ein</h5>
 		<table th:if="${listAllGrades != null}"
 			class="table table-hover table-bordered table-fixed">
 			<thead>
@@ -25,10 +23,10 @@
 				</tr>
 			</thead>
 			<tbody>
-				<tr th:each="post : ${listAllGrades}">
-					<td th:if="${grade.type.equals('out')}" class="word-wrap"
+				<tr th:each="grade : ${listAllGrades}">
+				<td th:if="${grade.type.equals('grade')}" class="word-wrap"
 						th:text="${grade.content}">nix</td>
-					<td th:if="${grade.type.equals('in')}" class="word-wrap"
+				<td th:if="${grade.type.equals('lecture')}" class="word-wrap"
 						th:text="${grade.content}">nix</td>
 				</tr>
 			</tbody>
@@ -36,8 +34,13 @@
 		<h5>Deine Note:</h5>
 		<form th:action="@{/add(lecture=${lecture},grade=${grade}) }"
 			method="post">
-			<input class="form-control" type="text" name="lcontent" minlength="1"
-				maxlength="255"> <br> <input type="submit"
+			<input class="form-control" type="text" name="gcontent" minlength="1"
+				maxlength="255">
+				<br>
+				<h5>Dein Modul:</h5> 
+				<input class="form-control" type="text" name="lcontent" minlength="1"
+				maxlength="255">
+				 <br> <input type="submit"
 				class="btn btn-outline-primary btn-sm" value="Note eintragen">
 		</form>
 	</div>

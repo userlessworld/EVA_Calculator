@@ -16,27 +16,29 @@ import whz.pti.eva.praktikum_02.grade.service.GradeServiceImpl;
 @Controller
 public class GradeController {
 	
-	
+	@Autowired
 	private GradeService gradeService;
 	
 	@RequestMapping("/grades")
 		public String listAllGrades( Model model) {
 			List<Grade> list = gradeService.listAllGrades();
 			model.addAttribute("listAllGrades", list);
-		
+			double average = gradeService.calculateAverage();
+			model.addAttribute("average", average);
 			return "grades";
 		
 	}
 	
 	@RequestMapping(value = "/add", method = RequestMethod.POST)
 	public String addGrade(@RequestParam String lecture, @RequestParam String grade,
-			@RequestParam String lcontent, Model model) {
-		model.addAttribute("lecture", lecture);
-		model.addAttribute("currentLecture", lecture);
-		List<Grade> list = gradeService.listAllGrades();
-		model.addAttribute("listAllGrades", list);
-		gradeService.addGrade(lecture, grade);
-		return "redirect:grades?lecture=" + lecture + "&grade=" + grade;
+			@RequestParam String lcontent, @RequestParam String gcontent, Model model) {
+		//model.addAttribute("lecture", lecture);
+		//model.addAttribute("currentLecture", lecture);
+		//List<Grade> list = gradeService.listAllGrades();
+		//model.addAttribute("listAllGrades", list);
+		gradeService.addGrade(lcontent, gcontent);
+		return "redirect:grades";
 	}
 	
+
 }

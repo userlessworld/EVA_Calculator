@@ -15,6 +15,9 @@ public class Grade {
 	private String grade;
 	
 	
+	public Grade() {
+		
+	}
 	
 	public Grade(String lecture, String grade) {
 		this.lecture = lecture;
