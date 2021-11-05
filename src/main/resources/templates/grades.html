@@ -24,10 +24,8 @@
 			</thead>
 			<tbody>
 				<tr th:each="grade : ${listAllGrades}">
-				<td th:if="${grade.type.equals('grade')}" class="word-wrap"
-						th:text="${grade.content}">nix</td>
-				<td th:if="${grade.type.equals('lecture')}" class="word-wrap"
-						th:text="${grade.content}">nix</td>
+				<td class="word-wrap" th:text="${grade.lecture}"></td>
+				<td class="word-wrap" th:text="${grade.grade}"></td>
 				</tr>
 			</tbody>
 		</table>
