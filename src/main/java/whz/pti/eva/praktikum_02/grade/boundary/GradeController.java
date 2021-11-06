@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import whz.pti.eva.praktikum_02.grade.domain.Grade;
 import whz.pti.eva.praktikum_02.grade.service.GradeService;
-import whz.pti.eva.praktikum_02.grade.service.GradeServiceImpl;
+
 
 @Controller
 public class GradeController {
@@ -19,7 +19,7 @@ public class GradeController {
 	@Autowired
 	private GradeService gradeService;
 	
-	@RequestMapping(value= "/grades", method = RequestMethod.GET)
+	@RequestMapping(value = "/grades", method = RequestMethod.GET)
 		public String listAllGrades( Model model) {
 			List<Grade> list = gradeService.listAllGrades();
 			model.addAttribute("listAllGrades", list);
@@ -30,8 +30,8 @@ public class GradeController {
 	}
 	
 	@RequestMapping(value = "/add", method = RequestMethod.POST)
-	public String addGrade(@RequestParam String lecture, @RequestParam String grade) {
-		gradeService.addGrade(lecture, grade);
+	public String addGrade(@RequestParam String lcontent, @RequestParam String gcontent) {
+		gradeService.addGrade(lcontent, gcontent);
 		return "redirect:grades";
 	}
 	

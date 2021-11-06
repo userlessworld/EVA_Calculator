@@ -53,8 +53,8 @@ public class GradeControllerTest {
     public void testListAllGrades() throws Exception {
         mockMvc.perform(get("/grades")
                 .contentType(MediaType.APPLICATION_JSON_VALUE)
-                .param("grade","1")
-                .param("lecture", "Mathe"))
+                .param("gcontent","1")
+                .param("lcontent", "Mathe"))
                 .andExpect(status().isOk())
                 .andExpect(view().name("grades"))
                 .andExpect(model().attribute("listAllGrades", hasSize(1)))
@@ -66,8 +66,8 @@ public class GradeControllerTest {
     public void testAddGrade() throws Exception {
     	mockMvc.perform(post("/add")
     			.contentType(MediaType.APPLICATION_JSON_VALUE)
-    			.param("grade", "1")
-    			.param("lecture", "mathe"))
+    			.param("gcontent", "1")
+    			.param("lcontent", "mathe"))
     			.andExpect(status()
     			.is3xxRedirection())
     			.andExpect(redirectedUrl("grades")).andDo(print());

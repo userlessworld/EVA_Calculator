@@ -14,10 +14,8 @@
 			class="table table-hover table-bordered table-fixed">
 			<thead>
 				<tr>
-					<th scope="col">Modul &nbsp; <i
-						class="fas fa-arrow-circle-right"></i>
-					</th>
-					<th scope="col">Note &nbsp;<i class="fas fa-arrow-circle-left"></i></th>
+					<th scope="col">Modul &nbsp;</th>
+					<th scope="col">Note &nbsp;</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -33,11 +31,11 @@
 		<h5>Deine Note:</h5>
 		<form th:action="@{/add(lecture=${lecture},grade=${grade}) }"
 			method="post">
-			<input class="form-control" type="text" name="grade" minlength="1"
+			<input class="form-control" type="text" name="gcontent" minlength="1"
 				maxlength="255">
 				<br>
 				<h5>Dein Modul:</h5> 
-				<input class="form-control" type="text" name="lecture" minlength="1"
+				<input class="form-control" type="text" name="lcontent" minlength="1"
 				maxlength="255">
 				 <br> <input type="submit"
 				class="btn btn-outline-primary btn-sm" value="Note eintragen">
