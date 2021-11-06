@@ -27,6 +27,9 @@
 				</tr>
 			</tbody>
 		</table>
+		<h5>Dein Notendurchschnitt: 
+		<span th:if="${average != null}" th:text="${average}"></span>
+		</h5> <br>
 		<h5>Deine Note:</h5>
 		<form th:action="@{/add(lecture=${lecture},grade=${grade}) }"
 			method="post">

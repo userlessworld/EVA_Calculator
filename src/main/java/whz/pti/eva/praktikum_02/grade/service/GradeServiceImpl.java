@@ -39,6 +39,9 @@ public class GradeServiceImpl implements GradeService{
 	@Override
 	public double calculateAverage() {
 		List<Grade> grades = listAllGrades();
+		if(grades.size() == 0) {
+			return 0.0;
+		}
 		return grades.stream().mapToDouble(g -> Double.valueOf(g.getGrade())).sum()/grades.size();
 	}
 
