@@ -33,11 +33,11 @@
 		<h5>Deine Note:</h5>
 		<form th:action="@{/add(lecture=${lecture},grade=${grade}) }"
 			method="post">
-			<input class="form-control" type="text" name="gcontent" minlength="1"
+			<input class="form-control" type="text" name="grade" minlength="1"
 				maxlength="255">
 				<br>
 				<h5>Dein Modul:</h5> 
-				<input class="form-control" type="text" name="lcontent" minlength="1"
+				<input class="form-control" type="text" name="lecture" minlength="1"
 				maxlength="255">
 				 <br> <input type="submit"
 				class="btn btn-outline-primary btn-sm" value="Note eintragen">

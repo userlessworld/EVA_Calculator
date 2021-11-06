@@ -19,7 +19,7 @@ public class GradeController {
 	@Autowired
 	private GradeService gradeService;
 	
-	@RequestMapping("/grades")
+	@RequestMapping(value= "/grades", method = RequestMethod.GET)
 		public String listAllGrades( Model model) {
 			List<Grade> list = gradeService.listAllGrades();
 			model.addAttribute("listAllGrades", list);
@@ -30,13 +30,8 @@ public class GradeController {
 	}
 	
 	@RequestMapping(value = "/add", method = RequestMethod.POST)
-	public String addGrade(@RequestParam String lecture, @RequestParam String grade,
-			@RequestParam String lcontent, @RequestParam String gcontent, Model model) {
-		//model.addAttribute("lecture", lecture);
-		//model.addAttribute("currentLecture", lecture);
-		//List<Grade> list = gradeService.listAllGrades();
-		//model.addAttribute("listAllGrades", list);
-		gradeService.addGrade(lcontent, gcontent);
+	public String addGrade(@RequestParam String lecture, @RequestParam String grade) {
+		gradeService.addGrade(lecture, grade);
 		return "redirect:grades";
 	}
 	
